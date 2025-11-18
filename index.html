@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>长安辞 - 古风乙女游戏</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'tang-red': '#A62424',
+            'tang-gold': '#D4AF37',
+            'tang-black': '#232323',
+            'tang-paper': '#F5F0E6',
+            'tang-blue': '#2B5999'
+          },
+          fontFamily: {
+            'song': ['"Noto Serif SC"', 'serif'],
+            'kai': ['"Noto Serif SC"', 'serif']
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .scroll-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264.888-.14 1.24.916 1.9 2.376 2.222 3.86.134.616-.36.96-.888.96-1.5.004-4.475-1.31-6.748-5.34-.22-.384-.124-.72.248-.908.374-.188.744.04 1.04.326.67.636 1.42 1.37 2.14 1.985.35.324.86.26 1.13-.114.28-.384.398-.856.18-1.28C18.335 16.44 17 15.56 17 14.5c0-1.1.9-2 2-2s2 .9 2 2c0 .53-.37 1.04-.9 1.415-.28.186-.47.496-.47.835 0 .47.38.85.85 1.06 1.16.47 2.32.94 3.48 1.41.34.14.71.06.94-.21.23-.27.16-.65-.12-.85-1.13-.63-2.26-1.26-3.39-1.89-.55-.32-1.1-.65-1.65-.99-.27-.17-.6-.14-.84.07-.24.21-.26.55-.07.78.65.71 1.3 1.42 1.95 2.13.35.37.86.4 1.24.05.38-.35.36-.89-.05-1.25-.7-1.01-1.4-2.02-2.1-3.03-.24-.37-.69-.52-1.06-.33-.37.19-.57.6-.5 1.01.33 1.61.66 3.22.99 4.83.09.45.49.78.95.78h.1c.51 0 .91-.38.95-.88.07-.78.14-1.56.21-2.34.05-.54-.37-1.04-.91-1.04-.27 0-.52.11-.71.31-.81.88-1.62 1.76-2.43 2.64-.37.42-.96.56-1.42.33-.46-.23-.72-.74-.6-1.23.42-1.79.84-3.58 1.26-5.37.13-.54-.32-1.04-.86-1.04h-.09c-.5 0-.9.38-.94.88-.08.78-.16 1.56-.24 2.34-.05.54.37 1.04.91 1.04.27 0 .52-.11.71-.31.81-.88 1.62-1.76 2.43-2.64.37-.42.96-.56 1.42-.33.46.23.72.74.6 1.23-.42 1.79-.84 3.58-1.26 5.37 0 .54.41.98.95.98h.08c.5 0 .9-.44.94-.98.07-.77.14-1.54.21-2.31.05-.54-.37-1.04-.91-1.04-.27 0-.52.11-.71.31-.29.3-.58.59-.87.89-.37.37-.93.46-1.37.22-.44-.24-.71-.74-.6-1.25.45-1.96.9-3.92 1.35-5.88.11-.53-.34-1.03-.88-1.03h-.09c-.5 0-.91.44-.95.98-.08.82-.16 1.64-.24 2.46-.05.54.37 1.04.91 1.04.27 0 .52-.11.71-.31.3-.3.59-.59.88-.89.37-.37.93-.46 1.37-.22.44.24.71.74.6 1.25-.45 1.96-.9 3.92-1.35 5.88.46 1.1 1.5 1.83 2.7 1.83 1.7 0 3.06-1.36 3.06-3.06 0-.1-.02-.21-.05-.31z' fill='%23A62424' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+      .ink-splash {
+        position: relative;
+      }
+      .ink-splash::after {
+        content: '';
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        top: -10%;
+        left: -10%;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C30 12 20 30 20 50c0 22 18 40 40 40 20-12 30-30 30-50 0-22-18-40-40-40zm0 80c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z' fill='%23A62424' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.5;
+        z-index: -1;
+      }
+      .scroll-edge {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264.888-.14 1.24.916 1.9 2.376 2.222 3.86.134.616-.36.96-.888.96-1.5.004-4.475-1.31-6.748-5.34-.22-.384-.124-.72.248-.908.374-.188.744.04 1.04.326.67.636 1.42 1.37 2.14 1.985.35.324.86.26 1.13-.114.28-.384.398-.856.18-1.28C18.335 16.44 17 15.56 17 14.5c0-1.1.9-2 2-2s2 .9 2 2c0 .53-.37 1.04-.9 1.415-.28.186-.47.496-.47.835 0 .47.38.85.85 1.06 1.16.47 2.32.94 3.48 1.41.34.14.71.06.94-.21.23-.27.16-.65-.12-.85-1.13-.63-2.26-1.26-3.39-1.89-.55-.32-1.1-.65-1.65-.99-.27-.17-.6-.14-.84.07-.24.21-.26.55-.07.78.65.71 1.3 1.42 1.95 2.13.35.37.86.4 1.24.05.38-.35.36-.89-.05-1.25-.7-1.01-1.4-2.02-2.1-3.03-.24-.37-.69-.52-1.06-.33-.37.19-.57.6-.5 1.01.33 1.61.66 3.22.99 4.83.09.45.49.78.95.78h.1c.51 0 .91-.38.95-.88.07-.78.14-1.56.21-2.34.05-.54-.37-1.04-.91-1.04-.27 0-.52.11-.71.31-.81.88-1.62 1.76-2.43 2.64-.37.42-.96.56-1.42.33-.46-.23-.72-.74-.6-1.23.42-1.79.84-3.58 1.26-5.37.13-.54-.32-1.04-.86-1.04h-.09c-.5 0-.9.38-.94.88-.08.78-.16 1.56-.24 2.34-.05.54.37 1.04.91 1.04.27 0 .52-.11.71-.31.81-.88 1.62-1.76 2.43-2.64.37-.42.96-.56 1.42-.33.46.23.72.74.6 1.23-.42 1.79-.84 3.58-1.26 5.37 0 .54.41.98.95.98h.08c.5 0 .9-.44.94-.98.07-.77.14-1.54.21-2.31.05-.54-.37-1.04-.91-1.04-.27 0-.52.11-.71.31-.29.3-.58.59-.87.89-.37.37-.93.46-1.37.22-.44-.24-.71-.74-.6-1.25.45-1.96.9-3.92 1.35-5.88.11-.53-.34-1.03-.88-1.03h-.09c-.5 0-.91.44-.95.98-.08.82-.16 1.64-.24 2.46-.05.54.37 1.04.91 1.04.27 0 .52-.11.71-.31.3-.3.59-.59.88-.89.37-.37.93-.46 1.37-.22.44.24.71.74.6 1.25-.45 1.96-.9 3.92-1.35 5.88.46 1.1 1.5 1.83 2.7 1.83 1.7 0 3.06-1.36 3.06-3.06 0-.1-.02-.21-.05-.31z' fill='%23A62424' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+    }
+  </style>
+  
+  <style>
+    /* 导入字体 */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap');
+    
+    /* 基础动画 */
+    .fade-in {
+      animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .ink-animation {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ink-animation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(166,36,36,0.1) 0%, rgba(166,36,36,0) 70%);
+      transform: scale(0);
+      animation: inkSpread 1.5s ease-out forwards;
+      pointer-events: none;
+    }
+    
+    @keyframes inkSpread {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+    
+    /* 角色卡片悬停效果 */
+    .character-card {
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    .character-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+    
+    .character-card:hover .character-overlay {
+      opacity: 1;
+    }
+    
+    /* 卷轴效果 */
+    .scroll-container {
+      position: relative;
+      background-color: #F5F0E6;
+      border: 1px solid rgba(166,36,36,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .scroll-container::before,
+    .scroll-container::after {
+      content: '';
+      position: absolute;
+      height: 30px;
+      left: 0;
+      right: 0;
+      background-color: rgba(166,36,36,0.05);
+      z-index: 1;
+    }
+    
+    .scroll-container::before {
+      top: 0;
+      border-bottom: 1px dashed rgba(166,36,36,0.2);
+    }
+    
+    .scroll-container::after {
+      bottom: 0;
+      border-top: 1px dashed rgba(166,36,36,0.2);
+    }
+  </style>
+</head>
+
+<body class="bg-tang-paper scroll-pattern font-song text-tang-black">
+  <!-- 导航栏 -->
+  <header class="fixed w-full top-0 z-50 transition-all duration-500 bg-tang-paper/90 backdrop-blur-sm shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center">
+        <span class="text-tang-red text-2xl md:text-3xl font-kai font-bold tracking-wider">长安辞</span>
+        <span class="ml-2 text-sm md:text-base text-tang-black/70 hidden md:inline-block">大唐风华 · 缘起缘灭</span>
+      </a>
+      
+      <!-- 桌面导航 -->
+      <nav class="hidden md:flex space-x-8 items-center">
+        <a href="#story" class="text-tang-black hover:text-tang-red transition-colors duration-300 font-medium">故事背景</a>
+        <a href="#heroine" class="text-tang-black hover:text-tang-red transition-colors duration-300 font-medium">女主角</a>
+        <a href="#characters" class="text-tang-black hover:text-tang-red transition-colors duration-300 font-medium">可攻略角色</a>
+        <a href="#features" class="text-tang-black hover:text-tang-red transition-colors duration-300 font-medium">游戏特色</a>
+        <a href="#reserve" class="px-6 py-2 bg-tang-red text-white rounded-md hover:bg-tang-red/90 transition-colors duration-300 shadow-md hover:shadow-lg">立即预约</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-tang-black text-2xl">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端菜单 -->
+    <div id="mobile-menu" class="md:hidden hidden bg-tang-paper border-t border-tang-red/10">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="#story" class="py-2 text-tang-black hover:text-tang-red transition-colors">故事背景</a>
+        <a href="#heroine" class="py-2 text-tang-black hover:text-tang-red transition-colors">女主角</a>
+        <a href="#characters" class="py-2 text-tang-black hover:text-tang-red transition-colors">可攻略角色</a>
+        <a href="#features" class="py-2 text-tang-black hover:text-tang-red transition-colors">游戏特色</a>
+        <a href="#reserve" class="py-2 text-tang-red hover:text-tang-red/80 transition-colors font-medium">立即预约</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 英雄区域 -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <!-- 背景装饰 -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('https://picsum.photos/id/1076/1920/1080')] bg-cover bg-center opacity-10"></div>
+      <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-tang-paper to-transparent"></div>
+      <div class="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-tang-paper to-transparent"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-20 relative z-10 text-center">
+      <div class="fade-in" style="animation-delay: 0.3s">
+        <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-kai font-bold text-tang-red leading-tight ink-splash">
+          长安辞
+        </h1>
+      </div>
+      
+      <div class="fade-in mt-6" style="animation-delay: 0.6s">
+        <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-tang-black/80 max-w-2xl mx-auto font-kai">
+          盛唐风起，命运交织，一曲长安辞，缘起缘灭
+        </p>
+      </div>
+      
+      <div class="fade-in mt-10" style="animation-delay: 0.9s">
+        <p class="text-lg md:text-xl text-tang-black/70 max-w-2xl mx-auto">
+          古风乙女恋爱冒险游戏 · 与君相逢于长安
+        </p>
+      </div>
+      
+      <div class="fade-in mt-12 flex flex-col sm:flex-row justify-center gap-4" style="animation-delay: 1.2s">
+        <a href="#story" class="px-8 py-3 bg-tang-red text-white rounded-md hover:bg-tang-red/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium">
+          了解故事
+        </a>
+        <a href="#reserve" class="px-8 py-3 bg-transparent border-2 border-tang-red text-tang-red hover:bg-tang-red/5 rounded-md transition-all duration-300 font-medium">
+          预约游戏
+        </a>
+      </div>
+      
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#story" class="text-tang-red/70 text-3xl hover:text-tang-red transition-colors">
+          <i class="fa fa-angle-down"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 故事背景 -->
+  <section id="story" class="py-20 relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-kai font-bold text-tang-red">故事背景</h2>
+        <div class="w-24 h-1 bg-tang-gold mx-auto mt-4 mb-6"></div>
+        <p class="text-lg text-tang-black/70 max-w-3xl mx-auto">
+          开元盛世，长安城内，万国来朝，风华绝代。然而在这繁华背后，暗流涌动，命运的丝线悄然交织。
+        </p>
+      </div>
+      
+      <div class="scroll-container p-8 md:p-12 max-w-4xl mx-auto scroll-reveal">
+        <p class="text-lg leading-relaxed mb-6">
+          大唐开元年间，长安作为世界中心，汇聚了四方英才与奇珍异宝。本是吏部侍郎之女的李浩然，因父亲遭人陷害而家道中落，被迫隐姓埋名，以男装身份在长安城内谋生。
+        </p>
+        <p class="text-lg leading-relaxed mb-6">
+          一次偶然的机会，她卷入了一场关乎朝堂安危的阴谋之中。为了洗刷父亲的冤屈，也为了在这复杂的长安城中生存下去，李浩然不得不周旋于各方势力之间。
+        </p>
+        <p class="text-lg leading-relaxed">
+          在这段充满未知与挑战的旅程中，她遇到了形形色色的人——温润如玉的世家公子、深沉莫测的皇子、豪放不羁的边塞将军、才华横溢的诗坛领袖、神秘诡谲的江湖侠客……
+        </p>
+        <p class="text-lg leading-relaxed mt-6">
+          当身份的秘密逐渐揭开，当情感与理智激烈碰撞，李浩然将如何在这盛世长安中，书写属于自己的传奇？她的命运，又将与谁紧紧相连？
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 女主角介绍 -->
+  <section id="heroine" class="py-20 bg-tang-paper/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-kai font-bold text-tang-red">女主角 · 李浩然</h2>
+        <div class="w-24 h-1 bg-tang-gold mx-auto mt-4 mb-6"></div>
+        <p class="text-lg text-tang-black/70 max-w-3xl mx-auto">
+          昔日名门闺秀，今朝江湖客，以智慧与勇气，在长安乱世中寻找真相
+        </p>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
+        <div class="lg:w-1/2 scroll-reveal">
+          <div class="relative">
+            <img src="https://picsum.photos/id/64/600/800" alt="李浩然" class="w-full h-auto rounded-lg shadow-xl">
+            <div class="absolute -bottom-5 -right-5 bg-tang-red text-white p-4 rounded shadow-lg">
+              <p class="font-kai text-xl">李浩然</p>
+              <p class="text-sm opacity-90">吏部侍郎之女</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:w-1/2 scroll-reveal">
+          <div class="scroll-container p-8">
+            <h3 class="text-2xl font-kai font-semibold text-tang-red mb-6">人物简介</h3>
+            
+            <p class="mb-6 leading-relaxed">
+              李浩然本是长安城内有名的才女，父亲曾任吏部侍郎，家世显赫。她自幼饱读诗书，精通琴棋书画，同时也跟随父亲学习过一些权谋之术。
+            </p>
+            
+            <p class="mb-6 leading-relaxed">
+              变故发生后，她被迫以男装身份示人，性格也从原本的活泼开朗变得沉稳内敛，遇事冷静，心思缜密。但在内心深处，她依然保留着一份善良与执着。
+            </p>
+            
+            <div class="mt-8">
+              <h4 class="font-semibold text-lg mb-4">人物特质</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <i class="fa fa-book text-tang-red mr-2"></i>
+                  <span>聪慧过人</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fa fa-shield text-tang-red mr-2"></i>
+                  <span>坚韧不拔</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fa fa-balance-scale text-tang-red mr-2"></i>
+                  <span>明辨是非</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fa fa-heart text-tang-red mr-2"></i>
+                  <span>重情重义</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fa fa-paint-brush text-tang-red mr-2"></i>
+                  <span>才华横溢</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fa fa-flask text-tang-red mr-2"></i>
+                  <span>善于应变</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 可攻略角色 -->
+  <section id="characters" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-kai font-bold text-tang-red">可攻略角色</h2>
+        <div class="w-24 h-1 bg-tang-gold mx-auto mt-4 mb-6"></div>
+        <p class="text-lg text-tang-black/70 max-w-3xl mx-auto">
+          长安城内，邂逅不同身份的他，谁将与你谱写一段盛唐佳话？
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- 角色1 -->
+        <div class="character-card scroll-container overflow-hidden scroll-reveal">
+          <div class="relative">
+            <img src="https://picsum.photos/id/177/600/400" alt="慕容瑾" class="w-full h-64 object-cover">
+            <div class="character-overlay absolute inset-0 bg-tang-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300">
+              <p class="text-white text-center px-4">「浩然，无论前路如何，我都会护你周全。」</p>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-tang-black/70 to-transparent p-4">
+              <h3 class="text-xl font-kai font-bold text-white">慕容瑾</h3>
+              <p class="text-white/80">温润公子 · 吏部尚书之子</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-tang-black/80 mb-4">出身名门，性格温润如玉，才华横溢，是长安城内无数名门闺秀的梦中情人。</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">温润如玉</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">才华横溢</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">深情专一</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 角色2 -->
+        <div class="character-card scroll-container overflow-hidden scroll-reveal" style="transition-delay: 0.2s">
+          <div class="relative">
+            <img src="https://picsum.photos/id/189/600/400" alt="李玄" class="w-full h-64 object-cover">
+            <div class="character-overlay absolute inset-0 bg-tang-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300">
+              <p class="text-white text-center px-4">「这天下，与你，我都想要。」</p>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-tang-black/70 to-transparent p-4">
+              <h3 class="text-xl font-kai font-bold text-white">李玄</h3>
+              <p class="text-white/80">深沉皇子 · 唐玄宗之子</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-tang-black/80 mb-4">表面闲散，实则城府极深，暗中积蓄力量。对李浩然的男装身份格外感兴趣。</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">深沉莫测</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">野心勃勃</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">占有欲强</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 角色3 -->
+        <div class="character-card scroll-container overflow-hidden scroll-reveal" style="transition-delay: 0.4s">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1012/600/400" alt="萧策" class="w-full h-64 object-cover">
+            <div class="character-overlay absolute inset-0 bg-tang-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300">
+              <p class="text-white text-center px-4">「沙场上的刀光剑影，不及你回眸一笑。」</p>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-tang-black/70 to-transparent p-4">
+              <h3 class="text-xl font-kai font-bold text-white">萧策</h3>
+              <p class="text-white/80">边塞将军 · 战功赫赫</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-tang-black/80 mb-4">性格豪爽，不拘小节，常年驻守边疆，因战功被召回长安。看似粗犷，实则心思细腻。</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">豪放不羁</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">重情重义</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">外冷内热</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 角色4 -->
+        <div class="character-card scroll-container overflow-hidden scroll-reveal">
+          <div class="relative">
+            <img src="https://picsum.photos/id/338/600/400" alt="温庭筠" class="w-full h-64 object-cover">
+            <div class="character-overlay absolute inset-0 bg-tang-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300">
+              <p class="text-white text-center px-4">「愿为你写下千古诗句，记录你我的故事。」</p>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-tang-black/70 to-transparent p-4">
+              <h3 class="text-xl font-kai font-bold text-white">温庭筠</h3>
+              <p class="text-white/80">诗坛领袖 · 才华横溢</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-tang-black/80 mb-4">长安城内最负盛名的诗人，性格洒脱不羁，嗜酒如命，却能写出流传千古的诗句。</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">才华横溢</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">洒脱不羁</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">浪漫多情</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 角色5 -->
+        <div class="character-card scroll-container overflow-hidden scroll-reveal" style="transition-delay: 0.2s">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1005/600/400" alt="夜宸" class="w-full h-64 object-cover">
+            <div class="character-overlay absolute inset-0 bg-tang-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300">
+              <p class="text-white text-center px-4">「我的过去不值得一提，只愿与你共赴未来。」</p>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-tang-black/70 to-transparent p-4">
+              <h3 class="text-xl font-kai font-bold text-white">夜宸</h3>
+              <p class="text-white/80">江湖侠客 · 神秘莫测</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-tang-black/80 mb-4">身世成谜的江湖侠客，武功高强，行事诡秘，似乎与李浩然父亲的案件有着千丝万缕的联系。</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">神秘莫测</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">外冷内热</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">重诺守信</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 角色6 -->
+        <div class="character-card scroll-container overflow-hidden scroll-reveal" style="transition-delay: 0.4s">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1062/600/400" alt="阿史那·隼" class="w-full h-64 object-cover">
+            <div class="character-overlay absolute inset-0 bg-tang-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300">
+              <p class="text-white text-center px-4">「在我们部族，认定了一个人，便是一生一世。」</p>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-tang-black/70 to-transparent p-4">
+              <h3 class="text-xl font-kai font-bold text-white">阿史那·隼</h3>
+              <p class="text-white/80">异族王子 · 来访长安</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-tang-black/80 mb-4">突厥王子，作为使者来访长安。性格直率，勇猛好胜，对中原文化充满好奇。</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">直率勇猛</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">真诚坦率</span>
+              <span class="px-3 py-1 bg-tang-red/10 text-tang-red text-sm rounded-full">敢爱敢恨</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 游戏特色 -->
+  <section id="features" class="py-20 bg-tang-paper/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-kai font-bold text-tang-red">游戏特色</h2>
+        <div class="w-24 h-1 bg-tang-gold mx-auto mt-4 mb-6"></div>
+        <p class="text-lg text-tang-black/70 max-w-3xl mx-auto">
+          沉浸式体验盛唐风貌，多线剧情自由选择，开启你的长安奇缘
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- 特色1 -->
+        <div class="scroll-container p-6 hover:shadow-lg transition-shadow duration-300 scroll-reveal">
+          <div class="w-16 h-16 bg-tang-red/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-book text-2xl text-tang-red"></i>
+          </div>
+          <h3 class="text-xl font-kai font-semibold text-tang-red mb-4">跌宕剧情</h3>
+          <p class="text-tang-black/70">
+            主线剧情与支线故事相互交织，超过50万字的文本量，揭开长安城内的层层谜团，体验李浩然的传奇人生。
+          </p>
+        </div>
+        
+        <!-- 特色2 -->
+        <div class="scroll-container p-6 hover:shadow-lg transition-shadow duration-300 scroll-reveal" style="transition-delay: 0.2s">
+          <div class="w-16 h-16 bg-tang-red/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-heart text-2xl text-tang-red"></i>
+          </div>
+          <h3 class="text-xl font-kai font-semibold text-tang-red mb-4">多样结局</h3>
+          <p class="text-tang-black/70">
+            每位可攻略角色拥有3-5种不同结局，根据你的选择触发不同的故事发展，体验专属于你的长安爱情故事。
+          </p>
+        </div>
+        
+        <!-- 特色3 -->
+        <div class="scroll-container p-6 hover:shadow-lg transition-shadow duration-300 scroll-reveal" style="transition-delay: 0.4s">
+          <div class="w-16 h-16 bg-tang-red/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-paint-brush text-2xl text-tang-red"></i>
+          </div>
+          <h3 class="text-xl font-kai font-semibold text-tang-red mb-4">唐风美学</h3>
+          <p class="text-tang-black/70">
+            精致唯美的唐风美术风格，还原盛唐长安城的繁华景象，从服饰到建筑，细节之处彰显大唐风华。
+          </p>
+        </div>
+        
+        <!-- 特色4 -->
+        <div class="scroll-container p-6 hover:shadow-lg transition-shadow duration-300 scroll-reveal">
+          <div class="w-16 h-16 bg-tang-red/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-music text-2xl text-tang-red"></i>
+          </div>
+          <h3 class="text-xl font-kai font-semibold text-tang-red mb-4">古风配乐</h3>
+          <p class="text-tang-black/70">
+            由知名作曲家打造的古风原声音乐，结合剧情氛围变化，带来沉浸式的听觉体验，感受盛唐韵律。
+          </p>
+        </div>
+        
+        <!-- 特色5 -->
+        <div class="scroll-container p-6 hover:shadow-lg transition-shadow duration-300 scroll-reveal" style="transition-delay: 0.2s">
+          <div class="w-16 h-16 bg-tang-red/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-choice text-2xl text-tang-red"></i>
+          </div>
+          <h3 class="text-xl font-kai font-semibold text-tang-red mb-4">自由选择</h3>
+          <p class="text-tang-black/70">
+            丰富的对话选择与剧情分支，你的每一个决定都将影响故事走向，塑造独一无二的李浩然。
+          </p>
+        </div>
+        
+        <!-- 特色6 -->
+        <div class="scroll-container p-6 hover:shadow-lg transition-shadow duration-300 scroll-reveal" style="transition-delay: 0.4s">
+          <div class="w-16 h-16 bg-tang-red/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-gift text-2xl text-tang-red"></i>
+          </div>
+          <h3 class="text-xl font-kai font-semibold text-tang-red mb-4">互动系统</h3>
+          <p class="text-tang-black/70">
+            独特的角色互动系统，通过赠送礼物、共游长安等方式提升好感度，解锁专属剧情与CG。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预约区域 -->
+  <section id="reserve" class="py-20 relative">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('https://picsum.photos/id/1040/1920/1080')] bg-cover bg-center opacity-5"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-kai font-bold text-tang-red">立即预约</h2>
+        <div class="w-24 h-1 bg-tang-gold mx-auto mt-4 mb-6"></div>
+        <p class="text-lg text-tang-black/70 max-w-3xl mx-auto">
+          预约游戏，抢先获得独家礼包与最新资讯，共赴长安之约
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto scroll-container p-8 md:p-10 scroll-reveal">
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-tang-black font-medium mb-2">姓名</label>
+              <input type="text" id="name" class="w-full px-4 py-3 bg-white/80 border border-tang-red/20 rounded-md focus:outline-none focus:ring-2 focus:ring-tang-red/30 focus:border-tang-red transition-all" placeholder="请输入您的姓名">
+            </div>
+            
+            <div>
+              <label for="phone" class="block text-tang-black font-medium mb-2">手机号码</label>
+              <input type="tel" id="phone" class="w-full px-4 py-3 bg-white/80 border border-tang-red/20 rounded-md focus:outline-none focus:ring-2 focus:ring-tang-red/30 focus:border-tang-red transition-all" placeholder="请输入您的手机号码">
+            </div>
+          </div>
+          
+          <div>
+            <label for="email" class="block text-tang-black font-medium mb-2">电子邮箱</label>
+            <input type="email" id="email" class="w-full px-4 py-3 bg-white/80 border border-tang-red/20 rounded-md focus:outline-none focus:ring-2 focus:ring-tang-red/30 focus:border-tang-red transition-all" placeholder="请输入您的电子邮箱">
+          </div>
+          
+          <div>
+            <label class="block text-tang-black font-medium mb-2">最期待的角色</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <label class="flex items-center p-3 border border-tang-red/20 rounded-md hover:bg-tang-red/5 cursor-pointer transition-colors">
+                <input type="radio" name="character" class="mr-3 text-tang-red">
+                <span>慕容瑾</span>
+              </label>
+              <label class="flex items-center p-3 border border-tang-red/20 rounded-md hover:bg-tang-red/5 cursor-pointer transition-colors">
+                <input type="radio" name="character" class="mr-3 text-tang-red">
+                <span>李玄</span>
+              </label>
+              <label class="flex items-center p-3 border border-tang-red/20 rounded-md hover:bg-tang-red/5 cursor-pointer transition-colors">
+                <input type="radio" name="character" class="mr-3 text-tang-red">
+                <span>萧策</span>
+              </label>
+              <label class="flex items-center p-3 border border-tang-red/20 rounded-md hover:bg-tang-red/5 cursor-pointer transition-colors">
+                <input type="radio" name="character" class="mr-3 text-tang-red">
+                <span>温庭筠</span>
+              </label>
+              <label class="flex items-center p-3 border border-tang-red/20 rounded-md hover:bg-tang-red/5 cursor-pointer transition-colors">
+                <input type="radio" name="character" class="mr-3 text-tang-red">
+                <span>夜宸</span>
+              </label>
+              <label class="flex items-center p-3 border border-tang-red/20 rounded-md hover:bg-tang-red/5 cursor-pointer transition-colors">
+                <input type="radio" name="character" class="mr-3 text-tang-red">
+                <span>阿史那·隼</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="pt-4">
+            <button type="submit" class="w-full py-4 bg-tang-red text-white rounded-md hover:bg-tang-red/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-lg ink-animation">
+              提交预约
+            </button>
+          </div>
+        </form>
+        
+        <div class="mt-8 text-center text-tang-black/60 text-sm">
+          <p>预约成功后，我们将通过短信或邮件发送游戏最新资讯与独家礼包码</p>
+          <p class="mt-2">游戏预计上线时间：2024年第一季度</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-tang-black text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="#" class="text-2xl font-kai font-bold text-tang-red">长安辞</a>
+          <p class="text-gray-400 mt-2">盛唐风华 · 缘起缘灭</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-tang-red transition-colors">
+            <i class="fa fa-weibo text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-tang-red transition-colors">
+            <i class="fa fa-wechat text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-tang-red transition-colors">
+            <i class="fa fa-instagram text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-tang-red transition-colors">
+            <i class="fa fa-youtube-play text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm">© 2023 长安辞 游戏官方网站 版权所有</p>
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 mt-4 md:mt-0 text-sm">
+          <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">隐私政策</a>
+          <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">用户协议</a>
+          <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">联系我们</a>
+          <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">关于我们</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-tang-red text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      const icon = menuToggle.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+      } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+      }
+    });
+    
+    // 滚动显示动画
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+    
+    function checkScroll() {
+      scrollRevealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight * 0.85) {
+          element.classList.add('active');
+        }
+      });
+      
+      // 返回顶部按钮显示控制
+      const backToTop = document.getElementById('back-to-top');
+      if (window.scrollY > 500) {
+        backToTop.classList.remove('translate-y-20', 'opacity-0');
+        backToTop.classList.add('translate-y-0', 'opacity-100');
+      } else {
+        backToTop.classList.add('translate-y-20', 'opacity-0');
+        backToTop.classList.remove('translate-y-0', 'opacity-100');
+      }
+    }
+    
+    // 初始检查
+    window.addEventListener('load', checkScroll);
+    // 滚动时检查
+    window.addEventListener('scroll', checkScroll);
+    
+    // 返回顶部功能
+    document.getElementById('back-to-top').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 导航栏滚动效果
+    const navbar = document.querySelector('header');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        navbar.classList.add('py-2', 'shadow');
+        navbar.classList.remove('py-4');
+      } else {
+        navbar.classList.add('py-4');
+        navbar.classList.remove('py-2', 'shadow');
+      }
+    });
+  </script>
+</body>
+</html>
